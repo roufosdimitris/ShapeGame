@@ -43,27 +43,25 @@ public class ShapeGenerator
   }
 
   public Shape nextShape(){
-    int var = random.nextInt(arrayOfShapes.length);
-    while (true){
-      if (usedShapes[var] == true){
-        var = random.nextInt(arrayOfShapes.length);
+    int var = 0;
+    for (int i = 0; i < arrayOfShapes.length; i++){
+      if (usedShapes[i]){
+        continue;
       }else{
+        usedShapes[i] = true;
+        var = i;
         break;
       }
     }
-    usedShapes[var] = true;
     return arrayOfShapes[var];
   }
 
   public boolean hasShape(){
-    for (int i = 0; i < usedShapes.length; i++){
-      if (usedShapes[i]){
-        return false;
-      }else{
-        continue;
-      }
+    if (usedShapes[usedShapes.length-1]){
+      return false;
+    }else{
+      return true;
     }
-    return true;
   }
 
   public String toString(){

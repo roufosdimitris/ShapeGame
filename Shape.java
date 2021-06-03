@@ -6,8 +6,6 @@ public abstract class Shape
 
   public Shape(int area){
     this.area = area;
-    //int newArea = computeArea();
-    //area = newArea;
   }
 
   public int getArea(){
@@ -27,7 +25,7 @@ public abstract class Shape
   }
 
   public boolean sameType(Shape other){
-    if (getType().equals(getType())){
+    if (this.getType().equals(other.getType())){
       return true;
     }else{
       return false;
@@ -35,6 +33,6 @@ public abstract class Shape
   }
 
   public String toString(){
-    return "Type: "+getType()+"\nArea: "+computeArea();
+    return getType()+": "+computeArea();
   }
 }
